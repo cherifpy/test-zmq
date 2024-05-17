@@ -1,4 +1,4 @@
-from pizza_pb2_grpc import PizzaRPCServicer
+from pizza_pb2_grpc import PizzaRPCServicer, add_PizzaRPCServicer_to_server
 import pizza_pb2
 import grpc
 from concurrent import futures
@@ -26,8 +26,9 @@ class Server:
     def __init__(self, port):
         self._servicer = MyPizzaServicer()
         self._server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+        add_PizzaRPCServicer_to_server(MyPizzaServicer(), self._server)
         self._server.add_insecure_port(f'[::]:{port}')
-        self.start()
+       
         
     def start(self):
         self._server.start()
@@ -36,5 +37,5 @@ class Server:
         
 
 if __name__ == "__main__":
-    myserver = Server("32323")
+    myserver = Server("3232")
     myserver.start()

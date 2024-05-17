@@ -1,4 +1,4 @@
-from pizza_pb2_grpc import PizzaRPCServicer, PizzaRPCStub,PizzaRPC
+from pizza_pb2_grpc import PizzaRPCServicer, PizzaRPCStub
 import pizza_pb2
 import grpc
 
@@ -12,8 +12,7 @@ class Client:
             stub = PizzaRPCStub(channel)
             print("Coucou")
             ss = pizza_pb2.Size(size=size)
-            print(stub)
-            PizzaRPC.SetFileSize(ss)
+            stub.SetFileSize(ss)
 
 if __name__ == "__main__":
-    Client.setSizeOfServer("localhost","32323",15)    
+    Client.setSizeOfServer("localhost","3232",15)    
