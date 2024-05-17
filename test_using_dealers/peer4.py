@@ -36,9 +36,9 @@ while True:
                 if len(message) == 1:
                     continue
 
-                print(message)
+                
                 if (message[1].decode() == "None"):
-                    
+                    print(message)
                     for i in range(2):
                         dealer_socket.send_multipart([dealer_socket.identity,message[0],message[2]])
 

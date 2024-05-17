@@ -7,11 +7,11 @@ context = zmq.Context()
 dealer_socket = context.socket(zmq.DEALER)
 dealer_socket.identity = b"Peer1"  # Set unique identity
 
-connected = dealer_socket.connect("tcp://localhost:5555")  # Connect to Peer 2's router
-print(f"Peer 1 connected: {connected} to peer 2")
 
 connected = dealer_socket.connect("tcp://localhost:5557")  # Connect to Peer 2's router
 print(f"Peer 1 connected: {connected} to peer 4")
+connected = dealer_socket.connect("tcp://localhost:5555")  # Connect to Peer 2's router
+print(f"Peer 1 connected: {connected} to peer 2")
 
 connected = dealer_socket.connect("tcp://localhost:5558")  # Connect to Peer 2's router
 print(f"Peer 1 connected: {connected} to peer 5")

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message Empty {}
+
+message Size {
+    int32 size = 1;
+}
+
+service PizzaRPC {
+    rpc SetFileSize(Size) returns (Empty) {};
+}
